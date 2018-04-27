@@ -16,15 +16,32 @@ bossFightButton.addEventListener('click', takeBossFight);
 
 //TODO: alter the behavior of the takeSmallQuest, takeLongQuest, and takeBossFight functions so that they randomly add a value within their defined ranges to your total cash!
 function takeSmallQuest(){
-  alert('you took on the small quest!')
+  let randNum =  Math.floor(Math.random() * (20 - 10 + 1) ) + 10;
+  let newTotal = Number( cashLabel.innerText )+ randNum;
+  cashLabel.innerText = newTotal;
+
+
 }
 
 function takeLongQuest(){
-  alert('you took on the long quest!')
-}
+  let currentCash = Number(cashLabel.innerText);
+  let rand = randInRange(30,50);
+  currentCash += rand;
+  cashLabel.innerText = currentCash;
+  // alert('you took on the long quest!')
+ }
+
 
 function takeBossFight(){
-  alert('you took on the boss fight!')
+
+  let currentCash = Number(cashLabel.innerText);
+  let rand = randInRange(70,100);
+  currentCash += rand;
+  cashLabel.innerText = currentCash;
+}
+
+function randInRange(min,max){
+  return Math.floor(Math.random()*(max-min+1)) + min;
 }
 //HINT: All visible elements on HTML web page will be represented as strings when they are accessed using javascript
 //HINT: To get the text value of the cash that's currently on the page, access it's inner text using cashLabel.innerText
